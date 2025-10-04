@@ -6,6 +6,11 @@ const prisma = new PrismaClient();
 async function main() {
   console.log('🌱 Starting seed...');
 
+  // Delete all users and tenants
+  await prisma.user.deleteMany();
+  await prisma.tenant.deleteMany();
+  console.log('✅ Deleted all users and tenants');
+
   // Hash passwords
   const password = await bcrypt.hash('password123', 10);
 
@@ -31,7 +36,7 @@ async function main() {
       name: 'DewinU',
       password: password,
       telephone: '+505858531864',
-      role: Role.USER,
+      role: Role.ADMIN,
       tenantId: tenant1.id,
     },
   });
