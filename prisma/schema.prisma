@@ -14,14 +14,14 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
+  id        Int      @id @default(autoincrement())
   email     String   @unique
   name      String?
   password  String
   telephone String?
   role      Role   @default(USER)
   tenant    Tenant? @relation(fields: [tenantId], references: [id])
-  tenantId  String?
+  tenantId  Int?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   
@@ -33,7 +33,7 @@ enum Role {
 }
 
 model Tenant {
-  id        String   @id @default(uuid())
+  id        Int      @id @default(autoincrement())
   name      String
   users     User[]
   createdAt DateTime @default(now())

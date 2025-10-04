@@ -1,4 +1,4 @@
-import { IsEmail, IsString, IsOptional, IsEnum, IsUUID } from 'class-validator';
+import { IsEmail, IsString, IsOptional, IsEnum, IsInt } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export enum Role {
@@ -49,9 +49,9 @@ export class CreateUserDto {
 
   @ApiPropertyOptional({
     description: 'Tenant ID that the user belongs to',
-    example: '123e4567-e89b-12d3-a456-426614174000',
+    example: 1,
   })
   @IsOptional()
-  @IsUUID()
-  tenantId?: string;
+  @IsInt()
+  tenantId?: number;
 }
