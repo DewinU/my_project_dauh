@@ -20,21 +20,21 @@ async function main() {
       name: 'Tech Solutions Inc.',
     },
   })
-  console.log(`Tenant 1 created: ${tenant1.name}`)
+  console.log(`Tenant 1 created: ${tenant1.name} ${tenant1.id}`)
 
   const tenant2 = await prisma.tenant.create({
     data: {
       name: 'Marketing Pro Agency',
     },
   })
-  console.log(`Tenant 2 created: ${tenant2.name}`)
+  console.log(`Tenant 2 created: ${tenant2.name} ${tenant2.id}`)
 
   const tenant3 = await prisma.tenant.create({
     data: {
       name: 'Consulting Experts LLC',
     },
   })
-  console.log(`Tenant 3 created: ${tenant3.name}`)
+  console.log(`Tenant 3 created: ${tenant3.name} ${tenant3.id}`)
 
   // Hashear contraseñas
   console.log('🔐 Hashing passwords...')
